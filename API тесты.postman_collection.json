@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "c1828f8c-455a-472f-9ee7-4845feffeac2",
+		"name": "API тесты",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26979751",
+		"_collection_link": "https://universal-robot-886118.postman.co/workspace/KURSOVAYA~afde3c9d-f59f-4258-8370-ada590139a1f/collection/26979751-c1828f8c-455a-472f-9ee7-4845feffeac2?action=share&creator=26979751&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Создание личного события с валидными данными в будущем",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"id\"\r",
+							"var value = pm.response.json().data.payload.id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"backgroundColor\": \"#F4F5F6\",\r\n    \"color\": \"#81888D\",\r\n    \"description\": \"\",\r\n    \"endAt\": \"2023-06-19T00:30:00+03:00\",\r\n    \"startAt\": \"2023-06-19T00:00:00+03:00\",\r\n    \"title\": \"Коробка\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}v2/schedule/createPersonal",
+					"host": [
+						"{{baseUrl}}v2"
+					],
+					"path": [
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание личного события с валидными данными в настоящем",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"id\"\r",
+							"var value = pm.response.json().data.payload.id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"backgroundColor\": \"#F4F5F6\",\r\n    \"color\": \"#81888D\",\r\n    \"description\": \"kjdkjad\",\r\n    \"endAt\": \"2023-06-18T00:55:00+03:00\",\r\n    \"startAt\": \"2023-06-18T00:00:00+03:00\",\r\n    \"title\": \"Коробка123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}v2/schedule/createPersonal",
+					"host": [
+						"{{baseUrl}}v2"
+					],
+					"path": [
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание личного события с валидными данными в прошлом",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"id\"\r",
+							"var value = pm.response.json().data.payload.id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"backgroundColor\": \"#F4F5F6\",\r\n    \"color\": \"#81888D\",\r\n    \"description\": \"тсвчтм\",\r\n    \"endAt\": \"2023-06-17T00:30:00+03:00\",\r\n    \"startAt\": \"2023-06-17T00:00:00+03:00\",\r\n    \"title\": \"Korobka\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}v2/schedule/createPersonal",
+					"host": [
+						"{{baseUrl}}v2"
+					],
+					"path": [
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение всех параметров события",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"id\"\r",
+							"var value = pm.response.json().data.eventId\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"backgroundColor\": \"#FFF7C7\",\r\n    \"color\": \"#FAC641\",\r\n    \"description\": \"оро\",\r\n    \"title\": \"Коробка111\",\r\n    \"startAt\": \"2023-06-20T00:00:00+03:00\",\r\n    \"endAt\": \"2023-06-20T00:30:00+03:00\",\r\n    \"id\": {{id}},\r\n    \"oldStartAt\": \"2023-06-19T00:00:00+03:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}v2/schedule/updatePersonal",
+					"host": [
+						"{{baseUrl}}v2"
+					],
+					"path": [
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение имени события",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"id\"\r",
+							"var value = pm.response.json().data.eventId\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"backgroundColor\": \"#F4F5F6\",\r\n    \"color\": \"#81888D\",\r\n    \"description\": \"\",\r\n    \"endAt\": \"2023-06-19T00:30:00+03:00\",\r\n    \"startAt\": \"2023-06-19T00:00:00+03:00\",\r\n    \"title\": \"Коробка1234\",\r\n    \"id\": {{id}},\r\n    \"oldStartAt\": \"2023-06-19T00:00:00+03:00\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}v2/schedule/updatePersonal",
+					"host": [
+						"{{baseUrl}}v2"
+					],
+					"path": [
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение даты события",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"id\"\r",
+							"var value = pm.response.json().data.eventId\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"backgroundColor\": \"#F4F5F6\",\r\n    \"color\": \"#81888D\",\r\n    \"description\": \"\",\r\n    \"endAt\": \"2023-06-20T00:30:00+03:00\",\r\n    \"startAt\": \"2023-06-20T00:00:00+03:00\",\r\n    \"title\": \"Коробка\",\r\n    \"id\": {{id}},\r\n    \"oldStartAt\": \"2023-06-19T00:00:00+03:00\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}v2/schedule/updatePersonal",
+					"host": [
+						"{{baseUrl}}v2"
+					],
+					"path": [
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение цвета события",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"id\"\r",
+							"var value = pm.response.json().data.eventId\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"backgroundColor\": \"#FFF7C7\",\r\n    \"color\": \"#FAC641\",\r\n    \"description\": \"\",\r\n    \"endAt\": \"2023-06-19T00:30:00+03:00\",\r\n    \"startAt\": \"2023-06-19T00:00:00+03:00\",\r\n    \"title\": \"Коробка\",\r\n    \"id\": {{id}},\r\n    \"oldStartAt\": \"2023-06-19T00:00:00+03:00\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}v2/schedule/updatePersonal",
+					"host": [
+						"{{baseUrl}}v2"
+					],
+					"path": [
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание личного события с некорректной датой",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"id\"\r",
+							"var value = pm.response.json().data.payload.id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"backgroundColor\": \"#F4F5F6\",\r\n    \"color\": \"#81888D\",\r\n    \"description\": \"тсвчтм\",\r\n    \"endAt\": \"23-06-107T00:30:00+03:00\",\r\n    \"startAt\": \"23-06-107T00:00:00+03:00\",\r\n    \"title\": \"Korobka\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}v2/schedule/createPersonal",
+					"host": [
+						"{{baseUrl}}v2"
+					],
+					"path": [
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание личного события с неустановленной датой",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"id\"\r",
+							"var value = pm.response.json().data.payload.id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"backgroundColor\": \"#F4F5F6\",\r\n    \"color\": \"#81888D\",\r\n    \"description\": \"рпоп\",\r\n    \"title\": \"korobka\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}v2/schedule/createPersonal",
+					"host": [
+						"{{baseUrl}}v2"
+					],
+					"path": [
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление события",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"id\"\r",
+							"var value = pm.response.json().data.payload.id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{id}},\r\n    \"startAt\": \"2023-06-19T00:00:00+03:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}v2/schedule/removePersonal",
+					"host": [
+						"{{baseUrl}}v2"
+					],
+					"path": [
+						"schedule",
+						"removePersonal"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-teachers.skyeng.ru/",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VySWQiOjE0NTk2OTMzLCJpZGVudGl0eSI6InRlc3QudHN0MzE3QHNreWVuZy5ydSIsImlkZW50aXR5TG9naW4iOm51bGwsImlkZW50aXR5RW1haWwiOiJ0ZXN0LnRzdDMxN0Bza3llbmcucnUiLCJpZGVudGl0eVBob25lIjpudWxsLCJuYW1lIjoidGVzdCIsInN1cm5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0LnRzdDMxN0Bza3llbmcucnUiLCJ1aUxhbmd1YWdlIjoicnUiLCJsb2NhbGUiOiJydSIsInNlcnZpY2VMb2NhbGUiOm51bGwsInVhcyI6MzAsImp3dFR5cGUiOjEsImp0aSI6IkF6YUM4THJvemlSTHlncGJSNjRWbmdSWHBDOU5nUGRDIiwiYnJhbmQiOm51bGwsImV4cCI6MTY4NzEyMzQ1MiwiYXZhdGFyVXJsIjoiaHR0cHM6XC9cL2F1dGgtYXZhdGFycy1za3llbmcuaW1naXgubmV0XC8xNDU5NjkzM1wvOThmNmJlYjUtZjA3Yi00MWViLThiYzItNDU3MTQwYTc0ODgzP2F1dG89Zm9ybWF0JTJDZW5oYW5jZSZmaXQ9Y3JvcCZoPTIwMCZpeGxpYj1waHAtMi4xLjEmcT03NSZzYXQ9OCZzaGFycD0xMCZ2aWI9OCZ3PTIwMCIsImFJc1N0cm9uZyI6dHJ1ZSwiYVR5cGUiOiJVU0VSTkFNRV9QQVNTV09SRCIsImFUaW1lIjoxNjg3MDM3MDUxLCJyb2xlcyI6WyJST0xFX1RFQUNIRVJfQ0FORElEQVRFIiwiUk9MRV9URUFDSEVSX0NBTkRJREFURV9CQVNFX0FDQ0VTUyIsIlJPTEVfVFRDX1VTQUdFIiwiUk9MRV9WSU1CT1hfVEVBQ0hFUl9VU0FHRSIsIlJPTEVfVEVBQ0hFUiIsIlJPTEVfQ1JNMl9URUFDSEVSX0FDQ0VTUyIsIlJPTEVfTUFUSF9URUFDSEVSIiwiUk9MRV9NQVRIX0NPTlRFTlRfVEhFTUVfVklFVyJdfQ.q2BMotMYb9Yh5uEnfGEN2gBHUoEYFrRPtPxW4jqOuqmPeaOaoAj39Io1uFcEWOHzBXLyee-NgZAcqsr6GEdAsdhWkahjgo-SV8eBilRS8qir0Ra3UCiiu0ZxDwucU3RtdhM857XeV_Hyp82kh8x3Y3u6npzb_RUkCCxW-WQkwbdpEFisTlH3kPBB1sRRP-LbKy6br9lLD4RqNjsWHpfyRNXJqgszhhaMoj31yrtR9ZuagGxLtuWxhGdfKH7QzvhuWjsfcJ-diQgQos39eFS_fP-fw0P8hgej7j2_Rca5i99dAWETLu6jw-kyuyoYltgQgQ_H6xdBcg_EDEx4kkjchiZSmhM_aAMpUdiWOitHLrb9w9siQ3vMgZSRfEBpvowQUEfP0Ni8G9ps4ZDti7_86IrEUHa6K-EPyLakVAUXgzDita9udMlxqOJNCj9_mJi4NFdgFdbv7p9d7jtcUBSOntlEe7868CxkS3r4dS036BIgag6C8Hw_LuNnpbBheClzU6-fOpSlqOku5eYMqRAR9GWo9SePI3wuEp7Edxl7_k4Wj6ir4gwVAjXS56kYC2Z1BnNuXaStap6H3Ql4Bnog2ifdu43E3vVcFqLDGr2k92PFSnT1q6AjmSgc9yvQuQkST4aUydHrrZuxoQNgZq4rQ4YtyJaZ32B7mp-Hz4pHT_I",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": ""
+		}
+	]
+}
